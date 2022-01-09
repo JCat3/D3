@@ -37,7 +37,7 @@ function makeResponsive() {
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   //import data
-  d3.csv("assets/data/data.csv").then(function(stateData) {
+  d3.csv("assets/data/data.csv").then((stateData) => {
     
       // Step 1: Parse Data/Cast as numbers
       stateData.forEach(function(data){
@@ -113,6 +113,8 @@ function makeResponsive() {
   }).catch(function(error) {
     console.log(error);
   });
+
+  console.log("hello");
 
 }
 
