@@ -37,7 +37,7 @@ function makeResponsive() {
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   //import data
-  d3.csv("data.csv").then(function(stateData) {
+  d3.csv("assets/data/data.csv").then(function(stateData) {
     
       // Step 1: Parse Data/Cast as numbers
       stateData.forEach(function(data){
@@ -50,7 +50,7 @@ function makeResponsive() {
         .domain([5, d3.max(stateData, d=> d.income)])
         .range([0, width]);
     
-      var xLinearScale = d3.scaleLinear()
+      var yLinearScale = d3.scaleLinear()
         .domain([5, d3.max(stateData, d=> d.obesity)])
         .range([height, 0]);
 
