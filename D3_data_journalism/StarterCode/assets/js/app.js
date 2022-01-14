@@ -14,8 +14,8 @@ function makeResponsive() {
     }
 
   // height of the browser window.
-  var svgWidth = window.innerWidth;
-  var svgHeight = window.innerHeight;
+  var svgWidth = 960;
+  var svgHeight = 500;
 
   var margin = {
     top: 20,
@@ -28,7 +28,7 @@ function makeResponsive() {
   var height = svgHeight - margin.top - margin.bottom;
 
   // Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
-  var svg = d3.select(".chart")
+  var svg = d3.select("#chart")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
@@ -49,6 +49,7 @@ function makeResponsive() {
       var xLinearScale = d3.scaleLinear()
         .domain([5, d3.max(stateData, d=> d.income)])
         .range([0, width]);
+      
     
       var yLinearScale = d3.scaleLinear()
         .domain([5, d3.max(stateData, d=> d.obesity)])
@@ -103,12 +104,12 @@ function makeResponsive() {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .attr("class", "axisText")
-        .text("Income Level");
+        .text("Obesity Rate (%)");
 
     chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
         .attr("class", "axisText")
-        .text("Obesity Rate");
+        .text("Income Level ($)");
 
   }).catch(function(error) {
     console.log(error);
